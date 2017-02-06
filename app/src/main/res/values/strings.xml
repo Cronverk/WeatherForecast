@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WeatherForecast</string>
+    <string name="humidity_text" formatted="false">Humidity %s </string>
+    <string name="temperature_text" formatted="false">%s \u00B0</string>
+    <string name="pressure_text" formatted="false">Pressure %shPa</string>
+    <string name="wind_text" formatted="false"> Wind %sm/s</string>
 </resources>
