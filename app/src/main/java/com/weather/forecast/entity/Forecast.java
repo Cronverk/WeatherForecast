@@ -8,12 +8,6 @@ public class Forecast{
     @SerializedName("city")
     @Expose
     private City city;
-    @SerializedName("cod")
-    @Expose
-    private String cod;
-    @SerializedName("message")
-    @Expose
-    private Double message;
     @SerializedName("cnt")
     @Expose
     private Integer cnt;
@@ -27,22 +21,6 @@ public class Forecast{
 
     public void setCity(City city) {
         this.city = city;
-    }
-
-    public String getCod() {
-        return cod;
-    }
-
-    public void setCod(String cod) {
-        this.cod = cod;
-    }
-
-    public Double getMessage() {
-        return message;
-    }
-
-    public void setMessage(Double message) {
-        this.message = message;
     }
 
     public Integer getCnt() {
@@ -60,5 +38,4 @@ public class Forecast{
     public void setList(java.util.List<List> list) {
         this.list = list;
     }
-
 }

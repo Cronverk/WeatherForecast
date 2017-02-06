@@ -17,18 +17,9 @@ public class Main {
     @SerializedName("pressure")
     @Expose
     private Double pressure;
-    @SerializedName("sea_level")
-    @Expose
-    private Double seaLevel;
-    @SerializedName("grnd_level")
-    @Expose
-    private Double grndLevel;
     @SerializedName("humidity")
     @Expose
     private Double humidity;
-    @SerializedName("temp_kf")
-    @Expose
-    private Double tempKf;
 
     public Double getTemp() {
         return temp;
@@ -62,36 +53,12 @@ public class Main {
         this.pressure = pressure;
     }
 
-    public Double getSeaLevel() {
-        return seaLevel;
-    }
-
-    public void setSeaLevel(Double seaLevel) {
-        this.seaLevel = seaLevel;
-    }
-
-    public Double getGrndLevel() {
-        return grndLevel;
-    }
-
-    public void setGrndLevel(Double grndLevel) {
-        this.grndLevel = grndLevel;
-    }
-
     public Double getHumidity() {
         return humidity;
     }
 
     public void setHumidity(Double humidity) {
         this.humidity = humidity;
-    }
-
-    public Double getTempKf() {
-        return tempKf;
-    }
-
-    public void setTempKf(Double tempKf) {
-        this.tempKf = tempKf;
     }
 
 }

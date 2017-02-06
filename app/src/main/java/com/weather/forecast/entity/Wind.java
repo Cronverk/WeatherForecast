@@ -28,4 +28,8 @@ public class Wind {
         this.deg = deg;
     }
 
+    @Override
+    public String toString() {
+        return speed.toString()+"m/s";
+    }
 }

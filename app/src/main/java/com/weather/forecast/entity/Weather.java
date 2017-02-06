@@ -42,8 +42,13 @@ public class Weather {
         this.description = description;
     }
 
-    public String getIcon() {
-        return icon;
+    public Integer getIcon() {
+        try{
+            return Integer.parseInt(icon);
+        }catch (Exception e) {
+            return 200;
+        }
+
     }
 
     public void setIcon(String icon) {

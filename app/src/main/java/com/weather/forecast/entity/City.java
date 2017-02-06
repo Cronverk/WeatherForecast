@@ -17,12 +17,13 @@ public class City {
     @SerializedName("country")
     @Expose
     private String country;
-    @SerializedName("population")
-    @Expose
-    private Integer population;
-    @SerializedName("sys")
-    @Expose
-    private Sys sys;
+
+    public City(City city) {
+        this.id = city.id;
+        this.name = city.name;
+        this.coord = city.coord;
+        this.country = city.country;
+    }
 
     public Integer getId() {
         return id;
@@ -56,20 +57,8 @@ public class City {
         this.country = country;
     }
 
-    public Integer getPopulation() {
-        return population;
+    @Override
+    public String toString() {
+        return name;
     }
-
-    public void setPopulation(Integer population) {
-        this.population = population;
-    }
-
-    public Sys getSys() {
-        return sys;
-    }
-
-    public void setSys(Sys sys) {
-        this.sys = sys;
-    }
-
 }
