@@ -40,7 +40,8 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:layout_below="@+id/city"
             android:layout_alignLeft="@+id/city"
-            android:layout_alignStart="@+id/city" />
+            android:layout_alignStart="@+id/city"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/humidity"
