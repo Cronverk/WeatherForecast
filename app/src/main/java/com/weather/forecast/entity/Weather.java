@@ -18,6 +18,11 @@ public class Weather {
     @Expose
     private String icon;
 
+    public Weather(String icon){
+        this.icon = icon;
+
+    }
+
     public Integer getId() {
         return id;
     }

@@ -41,7 +41,7 @@ public class WeatherApi extends Observable implements Callback<Forecast>, Observ
             Forecast forecast = new Forecast();
             forecast.setCity(data.getCity());
             forecast.setCnt(endId - staId);
-            forecast.setList(data.getList().subList(staId, endId));
+            forecast.setWeatherByTimeList(data.getWeatherByTimeList().subList(staId, endId));
 
             staId = endId;
             endId += 8;

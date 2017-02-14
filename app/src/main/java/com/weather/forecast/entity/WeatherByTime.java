@@ -1,9 +1,14 @@
 package com.weather.forecast.entity;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class List {
+import java.util.List;
+
+public class WeatherByTime {
 
     @SerializedName("dt")
     @Expose
@@ -13,7 +18,7 @@ public class List {
     private Main main;
     @SerializedName("weather")
     @Expose
-    private java.util.List<Weather> weather = null;
+    private List<Weather> weather = null;
     @SerializedName("clouds")
     @Expose
     private Clouds clouds;
@@ -29,6 +34,10 @@ public class List {
     @SerializedName("dt_txt")
     @Expose
     private String dtTxt;
+
+    public WeatherByTime(Main main) {
+        this.main = main;
+    }
 
     public Integer getDt() {
         return dt;
@@ -95,3 +104,4 @@ public class List {
     }
 
 }
+

@@ -3,6 +3,8 @@ package com.weather.forecast.entity;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class Forecast{
 
     @SerializedName("city")
@@ -13,7 +15,7 @@ public class Forecast{
     private Integer cnt;
     @SerializedName("list")
     @Expose
-    private java.util.List<List> list = null;
+    private List<WeatherByTime> weatherByTime = null;
 
     public City getCity() {
         return city;
@@ -31,11 +33,11 @@ public class Forecast{
         this.cnt = cnt;
     }
 
-    public java.util.List<List> getList() {
-        return list;
+    public List<WeatherByTime> getWeatherByTimeList() {
+        return weatherByTime;
     }
 
-    public void setList(java.util.List<List> list) {
-        this.list = list;
+    public void setWeatherByTimeList(List<WeatherByTime> weatherByTime) {
+        this.weatherByTime = weatherByTime;
     }
 }
