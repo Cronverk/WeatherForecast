@@ -78,4 +78,13 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <com.weather.forecast.design.views.WeatherGraph
+        android:id="@+id/weatherGraph"
+        android:layout_width="match_parent"
+        android:layout_height="300px"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/weather_icon"
+        android:layout_centerHorizontal="true"
+         />
 </RelativeLayout>
