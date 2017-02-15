@@ -1,28 +1,27 @@
 package com.weather.forecast.entity;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class Forecast{
 
-    @SerializedName("city")
-    @Expose
-    private City city;
-    @SerializedName("cnt")
-    @Expose
+    private String cityName;
+    private float logitude;
+    private float latitude;
     private Integer cnt;
-    @SerializedName("list")
-    @Expose
-    private List<WeatherByTime> weatherByTime = null;
 
-    public City getCity() {
-        return city;
+    public Forecast() {
+        weatherByDays = new ArrayList<>();
     }
 
-    public void setCity(City city) {
-        this.city = city;
+    private List<WeatherByDay> weatherByDays = null;
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 
     public Integer getCnt() {
@@ -33,11 +32,31 @@ public class Forecast{
         this.cnt = cnt;
     }
 
-    public List<WeatherByTime> getWeatherByTimeList() {
-        return weatherByTime;
+    public List<WeatherByDay> getWeatherByDays() {
+        return weatherByDays;
     }
 
-    public void setWeatherByTimeList(List<WeatherByTime> weatherByTime) {
-        this.weatherByTime = weatherByTime;
+    public void setWeatherByDays(List<WeatherByDay> weatherByDays) {
+        this.weatherByDays = weatherByDays;
+    }
+
+    public void addWeatherByDay(WeatherByDay weatherByDay){
+        this.weatherByDays.add(weatherByDay);
+    }
+
+    public float getLogitude() {
+        return logitude;
+    }
+
+    public void setLogitude(float logitude) {
+        this.logitude = logitude;
+    }
+
+    public float getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(float latitude) {
+        this.latitude = latitude;
     }
 }

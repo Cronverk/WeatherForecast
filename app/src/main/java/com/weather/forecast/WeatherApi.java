@@ -2,7 +2,10 @@ package com.weather.forecast;
 
 import android.location.Location;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.weather.forecast.entity.Forecast;
+import com.weather.forecast.entity.WeatherDeserializer;
 import com.weather.forecast.retrofit.OpenWeatherService;
 
 import java.util.ArrayList;
@@ -25,6 +28,7 @@ public class WeatherApi extends Observable implements Callback<Forecast>, Observ
     }
 
     public void requestWeather(double latitude, double longitude){
+
         Call<Forecast> call = weatherService.getWeatherForecast(latitude, longitude, weatherApp.API_KEY);
         call.enqueue(this);
     }
@@ -32,23 +36,10 @@ public class WeatherApi extends Observable implements Callback<Forecast>, Observ
 
     @Override
     public void onResponse(Call<Forecast> call, Response<Forecast> response) {
-        response.body();
 
-        Forecast data = response.body();
-        ArrayList forecasts = new ArrayList<Forecast>();
-        int endId = data.getCnt() % 8;
-        for (int staId = 0; staId < data.getCnt(); ) {
-            Forecast forecast = new Forecast();
-            forecast.setCity(data.getCity());
-            forecast.setCnt(endId - staId);
-            forecast.setWeatherByTimeList(data.getWeatherByTimeList().subList(staId, endId));
-
-            staId = endId;
-            endId += 8;
-            forecasts.add(forecast);
-        }
+        Forecast forecast = response.body();
         setChanged();
-        notifyObservers(forecasts);
+        notifyObservers(forecast);
     }
 
     @Override

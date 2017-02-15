@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements Observer {
         requestPermission();
 
         ViewPager pager = (ViewPager) findViewById(R.id.pager);
-        adapter = new WeatherCardAdapter(getSupportFragmentManager(), new ArrayList<Forecast>());
+        adapter = new WeatherCardAdapter(getSupportFragmentManager(), new Forecast());
         pager.setAdapter(adapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(pager);
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        adapter.updateForecasts((ArrayList<Forecast>) arg);
+        adapter.updateForecasts((Forecast) arg);
         adapter.notifyDataSetChanged();
     }
 }

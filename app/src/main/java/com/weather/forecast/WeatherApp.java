@@ -2,6 +2,11 @@ package com.weather.forecast;
 
 import android.app.Application;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.weather.forecast.entity.Forecast;
+import com.weather.forecast.entity.WeatherDeserializer;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -17,9 +22,14 @@ public class WeatherApp extends Application {
 
     public static Retrofit getClient() {
         if (retrofit==null) {
+            Gson gson = new GsonBuilder()
+                    .registerTypeAdapter(Forecast.class, new WeatherDeserializer())
+                    .create();
+
+
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();
         }
         return retrofit;
