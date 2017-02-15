@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -82,9 +83,8 @@
     <com.weather.forecast.design.views.WeatherGraph
         android:id="@+id/weatherGraph"
         android:layout_width="match_parent"
-        android:layout_height="300px"
         android:layout_marginTop="25dp"
         android:layout_below="@+id/weather_icon"
         android:layout_centerHorizontal="true"
-         />
+        android:layout_height="match_parent" />
 </RelativeLayout>
