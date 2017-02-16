@@ -17,14 +17,16 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class WeatherApi extends Observable implements Callback<Forecast>, Observer {
+public class WeatherApi extends Observable implements Callback<Forecast> {
 
     private OpenWeatherService weatherService;
     private WeatherApp weatherApp;
 
-    public WeatherApi(WeatherApp weatherApp){
+    public WeatherApi(WeatherApp weatherApp,double lat,double lon){
         weatherService = weatherApp.getClient().create(OpenWeatherService.class);
         this.weatherApp = weatherApp;
+
+        requestWeather(lat,lon);
     }
 
     public void requestWeather(double latitude, double longitude){
@@ -45,11 +47,5 @@ public class WeatherApi extends Observable implements Callback<Forecast>, Observ
     @Override
     public void onFailure(Call<Forecast> call, Throwable t) {
 
-    }
-
-    @Override
-    public void update(Observable o, Object arg) {
-        Location location = (Location)arg;
-        requestWeather(location.getLatitude(),location.getLongitude());
     }
 }
