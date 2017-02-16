@@ -1,16 +1,9 @@
 package com.weather.forecast;
 
-import android.location.Location;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.weather.forecast.entity.Forecast;
-import com.weather.forecast.entity.WeatherDeserializer;
 import com.weather.forecast.retrofit.OpenWeatherService;
 
-import java.util.ArrayList;
 import java.util.Observable;
-import java.util.Observer;
 
 import retrofit2.Call;
 import retrofit2.Callback;

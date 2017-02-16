@@ -1,27 +1,18 @@
 package com.weather.forecast;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
-import com.weather.forecast.entity.Forecast;
-
-import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-/**
- * Created by Владелец on 16.02.2017.
- */
 
 public class Splash extends AppCompatActivity implements Observer,LocationApi.GeoSplash {
     WeatherCardAdapter adapter;

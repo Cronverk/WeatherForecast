@@ -4,14 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.weather.forecast.entity.Forecast;
 import com.weather.forecast.design.fragments.WeatherFragment;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
+import com.weather.forecast.entity.Forecast;
 
 
 public class WeatherCardAdapter extends FragmentPagerAdapter{

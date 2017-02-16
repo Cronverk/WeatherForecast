@@ -11,9 +11,6 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Владелец on 14.02.2017.
- */
 
 public class WeatherDeserializer implements JsonDeserializer<Forecast> {
 

@@ -5,9 +5,6 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-/**
- * Created by Владелец on 03.02.2017.
- */
 
 public class WeatherIcon extends TextView {
     public WeatherIcon(Context context) {

@@ -10,9 +10,6 @@ import com.weather.forecast.entity.WeatherDeserializer;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * Created by Владелец on 20.01.2017.
- */
 
 public class WeatherApp extends Application {
 

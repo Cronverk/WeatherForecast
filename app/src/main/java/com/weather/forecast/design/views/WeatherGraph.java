@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
-
 import android.graphics.PointF;
 import android.graphics.RectF;
 import android.util.AttributeSet;
@@ -17,6 +16,7 @@ import java.util.ArrayList;
 
 import butterknife.BindColor;
 import butterknife.ButterKnife;
+
 import static java.lang.Math.abs;
 
 

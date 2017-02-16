@@ -11,9 +11,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * Created by Владелец on 15.02.2017.
- */
 
 public class WeatherByDay implements Parcelable {
     String dayInfo;
