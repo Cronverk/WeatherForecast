@@ -1,6 +1,5 @@
 package com.weather.forecast.entity;
 
-import android.graphics.Point;
 import android.graphics.PointF;
 import android.os.Parcel;
 import android.os.Parcelable;

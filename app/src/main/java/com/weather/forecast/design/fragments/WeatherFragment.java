@@ -1,6 +1,6 @@
 package com.weather.forecast.design.fragments;
 
-import android.graphics.PointF;
+
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,24 +16,13 @@ import com.weather.forecast.entity.Forecast;
 import com.weather.forecast.entity.WeatherBy3Hour;
 import com.weather.forecast.entity.WeatherByDay;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
-import java.util.Map;
 
 import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
-/**
- * Created by Владелец on 02.02.2017.
- */
 
 public class WeatherFragment extends Fragment implements WeatherGraph.OnGraphClick{
 
@@ -41,9 +30,9 @@ public class WeatherFragment extends Fragment implements WeatherGraph.OnGraphCli
     @BindView(R.id.date)        TextView dateView;
     @BindView(R.id.city)        TextView cityView;
     @BindView(R.id.temperature) TextView tempView;
-    @BindView(R.id.humidity)    TextView humidityView;
-    @BindView(R.id.pressure)    TextView pressureView;
-    @BindView(R.id.wind)        TextView windView;
+    @BindView(R.id.humidity_value)    TextView humidityView;
+    @BindView(R.id.pressure_value)    TextView pressureView;
+    @BindView(R.id.wind_value)        TextView windView;
 
     @BindString(R.string.humidity_text) String humidity_text;
     @BindString(R.string.pressure_text) String pressure_text;
@@ -96,9 +85,9 @@ public class WeatherFragment extends Fragment implements WeatherGraph.OnGraphCli
 
         icon.setText(weather_hour.getWeatherIcon());
         tempView.setText(String.format(temp_text, weather_hour.getTemp()));
-        humidityView.setText(String.format(humidity_text, weather_hour.getHumidity()));
-        pressureView.setText(String.format(pressure_text, weather_hour.getPressure()));
-        windView.setText(String.format(wind_text, weather_hour.getWindSpeed()));
+        humidityView.setText(""+weather_hour.getHumidity());
+        pressureView.setText((""+ weather_hour.getPressure()));
+        windView.setText(""+ weather_hour.getWindSpeed());
 
 
         return rootView;
@@ -116,9 +105,9 @@ public class WeatherFragment extends Fragment implements WeatherGraph.OnGraphCli
 
         WeatherBy3Hour w3h = weatherByTimeList.get(position);
         tempView.setText(String.format(temp_text, w3h.getTemp()));
-        humidityView.setText(String.format(humidity_text, w3h.getHumidity()));
-        pressureView.setText(String.format(pressure_text, w3h.getPressure()));
-        windView.setText(String.format(wind_text, w3h.getWindSpeed()));
+        humidityView.setText(""+w3h.getHumidity());
+        pressureView.setText(""+w3h.getPressure());
+        windView.setText(""+w3h.getWindSpeed());
 
     }
 }

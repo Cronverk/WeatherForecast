@@ -56,7 +56,7 @@ public class WeatherGraph extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        canvas.drawARGB(80, 102, 204, 255);
+        //canvas.drawARGB(80, 102, 204, 255);
         float height = this.getHeight();
         float step_x = this.getWidth() / (points.size());
         float step_y = (this.getHeight() * 0.8f -50)/ 24f;
@@ -90,6 +90,7 @@ public class WeatherGraph extends View {
     private void initData(){
         ButterKnife.bind(this);
         points = new ArrayList<>();
+        points.add(new PointF(1,24));
 
         intervals = new ArrayList<>(8);
 
