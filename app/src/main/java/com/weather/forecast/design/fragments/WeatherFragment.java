@@ -84,8 +84,9 @@ public class WeatherFragment extends Fragment implements WeatherGraph.OnGraphCli
 
         WeatherGraph graph = (WeatherGraph) rootView.findViewById(R.id.weatherGraph);
         WeatherByDay weather = args.getParcelable("day_weather");
+        weatherByTimeList = weather.getWeather();
 
-        cityView.setText(args.getString("city"));
+        cityView.setText(args.getString("city_name"));
         dateView.setText(weather.getDayInfo());
 
         WeatherBy3Hour weather_hour = weather.getWeather().get(args.getInt("position"));
@@ -112,13 +113,12 @@ public class WeatherFragment extends Fragment implements WeatherGraph.OnGraphCli
 
     @Override
     public void click(int position) {
-        if(weatherByTimeList.size() < 8)
-            position-= weatherByTimeList.size();
 
-        //tempView.setText(String.format(temp_text, roundDouble(w_forecast.getDouble("temp")-273.15)));
-        ///humidityView.setText(String.format(humidity_text, roundFloat(weatherByTimeList.get(position).getMain().getHumidity())));
-        //pressureView.setText(String.format(pressure_text, roundDouble(weatherByTimeList.get(position).getMain().getPressure())));
-        //windView.setText(String.format(wind_text, roundDouble(args.getDouble("wind"))));
+        WeatherBy3Hour w3h = weatherByTimeList.get(position);
+        tempView.setText(String.format(temp_text, w3h.getTemp()));
+        humidityView.setText(String.format(humidity_text, w3h.getHumidity()));
+        pressureView.setText(String.format(pressure_text, w3h.getPressure()));
+        windView.setText(String.format(wind_text, w3h.getWindSpeed()));
 
     }
 }
