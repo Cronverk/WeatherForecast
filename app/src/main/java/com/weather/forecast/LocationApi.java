@@ -1,14 +1,12 @@
 package com.weather.forecast;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 
 import java.util.Observable;
@@ -19,11 +17,14 @@ public class LocationApi extends Observable implements LocationListener{
     Location location;
     Context context;
     String provider;
+    GeoSplash geoSplash;
 
-    public LocationApi(LocationManager locationManager, Context context) {
+    public LocationApi(LocationManager locationManager, Context context,GeoSplash geoSplash) {
         this.locationManager = locationManager;
         this.context = context;
+        this.geoSplash = geoSplash;
         provider = locationManager.getBestProvider(new Criteria(), false);
+
     }
 
     @Override
@@ -83,8 +84,7 @@ public class LocationApi extends Observable implements LocationListener{
                 .isProviderEnabled(LocationManager.GPS_PROVIDER);
 
         if (!enabled) {
-            Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-            context.startActivity(intent);
+            geoSplash.requestGeoEnable();
         }
     }
 
@@ -109,5 +109,10 @@ public class LocationApi extends Observable implements LocationListener{
         double dist = earthRadius * c;
 
         return dist; // output distance, in KM
+    }
+
+    interface GeoSplash{
+
+        void requestGeoEnable();
     }
 }
