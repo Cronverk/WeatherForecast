@@ -20,8 +20,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:text="Mon 17"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/weather_icon"
-            android:layout_toEndOf="@+id/weather_icon"
             android:layout_marginTop="25px" />
 
         <TextView
