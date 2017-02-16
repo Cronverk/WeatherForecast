@@ -59,22 +59,27 @@ public class WeatherGraph extends View {
         canvas.drawARGB(80, 102, 204, 255);
         float height = this.getHeight();
         float step_x = this.getWidth() / (points.size());
-        float step_y = this.getHeight() * 0.8f / 24f;
+        float step_y = (this.getHeight() * 0.8f -50)/ 24f;
         Path path = new Path();
 
 
 
         for (int i = 0; i < points.size(); i++) {
             PointF cur = points.get(i);
-
-            RectF interval = new RectF(step_x * cur.x, height - step_y * abs(cur.y),
+            RectF interval;
+            if(cur.y > -200)
+                interval = new RectF(step_x * cur.x, height - step_y * abs(cur.y)-50,
                     step_x * cur.x +step_x, height );
+            else
+                interval = new RectF(step_x * cur.x, height,
+                        step_x * cur.x +step_x, height );
+
             intervals.add(interval);
             path.addRect(interval, Path.Direction.CW);
 
             canvas.drawPath(path, rect_style);
-            canvas.drawText("" + roundFloat(points.get(i).y) + "\u00B0",step_x * cur.x + step_x / 3f,
-                    height - step_y * abs(cur.y), fontPaint);
+            canvas.drawText("" + points.get(i).y + "\u00B0",step_x * cur.x + step_x / 3f,
+                    height - step_y * abs(cur.y)-50, fontPaint);
 
             canvas.drawText(3 * points.get(i).x+"0", step_x * cur.x + step_x / 4f, height-5, fontPaint);
         }
