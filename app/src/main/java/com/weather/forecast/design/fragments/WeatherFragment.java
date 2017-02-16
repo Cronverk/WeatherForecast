@@ -59,6 +59,9 @@ public class WeatherFragment extends Fragment implements WeatherGraph.OnGraphCli
 
         args.putString("city_name", forecast.getCityName());
         args.putParcelable("day_weather", forecast.getWeatherByDays().get(position));
+        if(position == 0 )
+            args.putInt("position",40 - forecast.getCnt());
+        else args.putInt("position",0);
 
         WeatherFragment fragment = new WeatherFragment();
         fragment.setArguments(args);
@@ -85,7 +88,7 @@ public class WeatherFragment extends Fragment implements WeatherGraph.OnGraphCli
         cityView.setText(args.getString("city"));
         dateView.setText(weather.getDayInfo());
 
-        WeatherBy3Hour weather_hour = weather.getWeather().get(0);
+        WeatherBy3Hour weather_hour = weather.getWeather().get(args.getInt("position"));
 
         graph.setOnGraphClick(this);
         graph.setPoints(weather.getPointsArray());
